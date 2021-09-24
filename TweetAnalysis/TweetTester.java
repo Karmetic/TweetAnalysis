@@ -5,5 +5,4 @@ public class TweetTester {
 		// TODO Auto-generated method stub
 
 	}
-
 }
