@@ -8,18 +8,27 @@ public class Tweet{
 		private String tweet_text;
 		
 		public Tweet(){ //Default Constructor
-			polarity = 0;
-			tweet_id = 0;
-			user_name = "";
-			tweet_text = "";
+			this.polarity = 0;
+			this.tweet_id = 0;
+			this.user_name = "";
+			this.tweet_text = "";
 		}
 		
 		public Tweet(int polar, long id, String user, String tweet_contents) {
-			polarity = polar;
-			tweet_id = id;
-			user_name = user;
-			tweet_text = tweet_contents;
+			this.polarity = polar;
+			this.tweet_id = id;
+			this.user_name = user;
+			this.tweet_text = tweet_contents;
 		}
+		
+		public boolean equals (Object rhs) {
+		if(tweet_id != 0)
+			return tweet_id == ((Tweet)rhs).tweet_id;
+		else
+			return user_name.equals((((Tweet)rhs).user_name));
+		
+		}
+		
 			
 		public long getTweet_id() {
 			return tweet_id;
@@ -51,6 +60,14 @@ public class Tweet{
 
 		public void setTweet_text(String tweet_content) {
 			this.tweet_text = tweet_content;
+		}
+		
+		public String toString() {
+			return polarity+" "+tweet_id+" "+user_name+" "+tweet_text;
+		}
+		
+		public String idToString() {
+			return tweet_id+" ";
 		}
 		
 		
