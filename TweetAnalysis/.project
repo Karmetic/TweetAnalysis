@@ -14,11 +14,4 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>trainingProcessed.txt</name>
-			<type>1</type>
-			<location>C:/Users/IMFie/Documents/Computer Science Notes/Inheritance/trainingProcessed.txt</location>
-		</link>
-	</linkedResources>
 </projectDescription>

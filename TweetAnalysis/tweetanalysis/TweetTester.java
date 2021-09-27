@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class TweetTester {
 
 	public static void main(String[] args) {
+		
 		try {
 			TweetCollection.TweetData();
 		} catch (IOException e) {
@@ -17,8 +18,15 @@ public class TweetTester {
 		}
 
 		//Shows getTweet by Id functionality by passing in an ID and returning a full tweet
-		TweetCollection.getTweet(1467810369);
+		{
+			System.out.println("Pulling tweet based on Tweet ID: 1467810369");
+			TweetCollection.getTweet(1467810369);
+			
+			//Test Case: Attempt to pull a non-existent Tweet
+			System.out.println("\nAttempting to pull a non-existent Tweet: ");
+			TweetCollection.getTweet(6969696);
 		
+		}
 		//Shows tweet manipulation functionality by allowing a user to manually create a tweet (remove function to be improved in later projects)
 		{
 			//Object creation for scanner and tweet class
@@ -47,20 +55,27 @@ public class TweetTester {
 		System.out.print("\n");
 		
 		//Shows username search functionality by passing in a user name and printing all of their tweets
-		System.out.println("Currently performing hardcode user search for user: mikecog");
-		TweetCollection.UserSearch("mikecog");
-		System.out.print("\n");
-		
-		System.out.print("All Ids currently being retrieved, please wait one moment...");
-		try {
-			Thread.sleep(10000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		{
+			System.out.println("Currently performing hardcode user search for user: mikecog");
+			TweetCollection.UserSearch("mikecog");
+			System.out.print("\n");
+			System.out.println("Currently performign a hardcode search for a user that doesn't exist: Karmetic");
+			TweetCollection.UserSearch("Karmetic");
+			System.out.print("\n");
 		}
+		
 		//Shows ID collection functionally by displaying all possible ID's
-		TweetCollection.IdCollection();
-		System.out.print("\n");
+		{
+			System.out.print("All Ids currently being retrieved, please wait one moment...");
+			try {
+				Thread.sleep(10000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			TweetCollection.IdCollection();
+			System.out.print("\n");
+		}
 		
 		//Shows single tweet prediction functionality by returning "AI's" prediction of a tweet
 		System.out.print("Tweet Judged as: " + TweetCollection.TweetPrediction() + " level polarity.");

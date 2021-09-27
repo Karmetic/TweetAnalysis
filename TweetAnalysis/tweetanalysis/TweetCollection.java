@@ -27,7 +27,7 @@ public class TweetCollection {
 	
 	public static void TweetManipulation(Tweet T) { //Allows user to manually add a tweet by hand, may eventually include hard passing in tweets
 		Scanner sc = new Scanner(System.in);
-		System.out.print("Would you like to add or remove a tweet? (a for add, r for remove)");
+		System.out.print("Would you like to add or remove the passed tweet? (a for add, r for remove)");
 		
 		char addOrRemove = sc.next().charAt(0);
 		
@@ -50,7 +50,7 @@ public class TweetCollection {
 		   return searched;
 		  } 
 		  else 
-		   System.out.println("Tweet not found");
+		   System.out.println("Tweet not found\n");
 		 
 		  return null;
 	}
