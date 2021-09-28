@@ -13,7 +13,7 @@ public class TweetCollection {
 	static ArrayList<Tweet> tweetCollection = new ArrayList<Tweet>();
 	
 	//Reads the datafile line by line and splits the data into an array for each part of the tweet that's being read
-	public static void TweetData() throws IOException {
+	public void TweetData() throws IOException {
 		String tc;
 		BufferedReader br = new BufferedReader(new FileReader("./trainingProcessed.txt"));
 		String [] tokenizedTweet;
@@ -28,12 +28,12 @@ public class TweetCollection {
 		br.close();
 	}
 	
-	public static void TweetAdd(Tweet T)
+	public void TweetAdd(Tweet T)
 	{
 		tweetCollection.add(T);
 	}
 	
-	public static void TweetRemove(Tweet T)
+	public void TweetRemove(Tweet T)
 	{
 		tweetCollection.remove(T);
 
@@ -41,7 +41,7 @@ public class TweetCollection {
 
 	//Gets Tweet using a passed in ID, essentially creates a temporary tweet that only has the ID passed in, and finds where
 	//a tweet with that same ID is in the ArrayList, it then fetches the tweet at that location and prints it
-	public static Tweet getTweet(long idTarget) {
+	public Tweet getTweet(long idTarget) {
 		int index2 = tweetCollection.indexOf(new Tweet(0, idTarget, null, null)); 
 		  if (index2 > -1) { 
 		   Tweet searched = tweetCollection.get(index2); 
@@ -56,7 +56,7 @@ public class TweetCollection {
 	
 	//Similar to get with ID, creates a temp tweet with just username passed, it then uses an enhanced
 	//for loop to go through tweet by tweet and see if the usernames are equal, if they are, it prints the tweet.
-	public static void UserSearch(String userName) {
+	public void UserSearch(String userName) {
 		  int runCheck = 0;
 		for(Object T: tweetCollection) {
 			  Tweet tempTweet = new Tweet(0, 0, userName, null);
@@ -73,21 +73,21 @@ public class TweetCollection {
 	}
 	
 	//Simply calls a toString that I made that only sends back ids.
-	public static void IdCollection() {
+	public void IdCollection() {
 		for(Object T: tweetCollection) {
 			System.out.println((((Tweet) T).idToString()));
 		}
 	}
 	
-	public static int TweetPrediction() {
+	public int TweetPrediction() {
 		return 4;
 	}
 	
-	public static int AccuracyCheck() {
+	public int AccuracyCheck() {
 		return 50;
 	}
 	
-	public static void TweetUpdate(Tweet T) {
+	public void TweetUpdate(Tweet T) {
 		try(FileWriter fw = new FileWriter("trainingProcesed.txt", true);
 			    BufferedWriter bw = new BufferedWriter(fw);
 			    PrintWriter out = new PrintWriter(bw))

@@ -9,9 +9,10 @@ import java.util.Scanner;
 public class TweetTester {
 
 	public static void main(String[] args) {
+		TweetCollection tweetCollection = new TweetCollection();
 		
 		try {
-			TweetCollection.TweetData();
+			tweetCollection.TweetData();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -20,11 +21,11 @@ public class TweetTester {
 		//Shows getTweet by Id functionality by passing in an ID and returning a full tweet
 		{
 			System.out.println("Pulling tweet based on Tweet ID: 1467810369");
-			TweetCollection.getTweet(1467810369);
+			tweetCollection.getTweet(1467810369);
 			
 			//Test Case: Attempt to pull a non-existent Tweet
 			System.out.println("\nAttempting to pull a non-existent Tweet: ");
-			TweetCollection.getTweet(6969696);
+			tweetCollection.getTweet(6969696);
 		
 		}
 		//Shows tweet manipulation functionality by allowing a user to manually create a tweet (remove function to be improved in later projects)
@@ -47,11 +48,11 @@ public class TweetTester {
 			System.out.println("Enter tweet contents: ");
 			tw.setTweet_text(tweetText = sc.next());
 			
-			TweetCollection.TweetAdd(tw);
-			TweetCollection.TweetUpdate(tw);
+			tweetCollection.TweetAdd(tw);
+			tweetCollection.TweetUpdate(tw);
 			
 			//Added this remove to get rid of the tweet after each run because it was messing up each run
-			TweetCollection.TweetRemove(tw);
+			tweetCollection.TweetRemove(tw);
 			sc.close();
 		}
 		
@@ -61,10 +62,10 @@ public class TweetTester {
 		//Shows username search functionality by passing in a user name and printing all of their tweets
 		{
 			System.out.println("Currently performing hardcode user search for user: mikecog");
-			TweetCollection.UserSearch("mikecog");
+			tweetCollection.UserSearch("mikecog");
 			System.out.print("\n");
 			System.out.println("Currently performign a hardcode search for a user that doesn't exist: Karmetic");
-			TweetCollection.UserSearch("Karmetic");
+			tweetCollection.UserSearch("Karmetic");
 			System.out.print("\n");
 		}
 		
@@ -77,15 +78,15 @@ public class TweetTester {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			TweetCollection.IdCollection();
+			tweetCollection.IdCollection();
 			System.out.print("\n");
 		}
 		
 		//Shows single tweet prediction functionality by returning "AI's" prediction of a tweet
-		System.out.print("Tweet Judged as: " + TweetCollection.TweetPrediction() + " level polarity.");
+		System.out.print("Tweet Judged as: " + tweetCollection.TweetPrediction() + " level polarity.");
 		System.out.print("\n");
 		
 		//Shows an overall accuracy check of the full Tweet collection
-		System.out.print("The total accuracy of all tweets based on prediction is " + TweetCollection.AccuracyCheck() + "%");
+		System.out.print("The total accuracy of all tweets based on prediction is " + tweetCollection.AccuracyCheck() + "%");
 	}
 }
