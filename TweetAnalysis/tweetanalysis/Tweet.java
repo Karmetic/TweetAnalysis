@@ -63,7 +63,7 @@ public class Tweet{
 		}
 		
 		public String toString() {
-			return polarity+" "+tweet_id+" "+user_name+" "+tweet_text;
+			return polarity+","+tweet_id+","+user_name+","+tweet_text;
 		}
 		
 		public String idToString() {

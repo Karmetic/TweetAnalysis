@@ -47,7 +47,11 @@ public class TweetTester {
 			System.out.println("Enter tweet contents: ");
 			tw.setTweet_text(tweetText = sc.next());
 			
-			TweetCollection.TweetManipulation(tw);
+			TweetCollection.TweetAdd(tw);
+			TweetCollection.TweetUpdate(tw);
+			
+			//Added this remove to get rid of the tweet after each run because it was messing up each run
+			TweetCollection.TweetRemove(tw);
 			sc.close();
 		}
 		

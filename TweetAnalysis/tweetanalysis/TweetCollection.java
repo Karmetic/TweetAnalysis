@@ -1,8 +1,11 @@
 package tweetanalysis;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -25,19 +28,15 @@ public class TweetCollection {
 		br.close();
 	}
 	
-	public static void TweetManipulation(Tweet T) { //Allows user to manually add a tweet by hand, may eventually include hard passing in tweets
-		Scanner sc = new Scanner(System.in);
-		System.out.print("Would you like to add or remove the passed tweet? (a for add, r for remove)");
-		
-		char addOrRemove = sc.next().charAt(0);
-		
-		if (addOrRemove == 'a') {
-			tweetCollection.add(T);
-		}
-		else {
-			tweetCollection.remove(T);
-		}
-		
+	public static void TweetAdd(Tweet T)
+	{
+		tweetCollection.add(T);
+	}
+	
+	public static void TweetRemove(Tweet T)
+	{
+		tweetCollection.remove(T);
+
 	}
 
 	//Gets Tweet using a passed in ID, essentially creates a temporary tweet that only has the ID passed in, and finds where
@@ -88,7 +87,18 @@ public class TweetCollection {
 		return 50;
 	}
 	
-	public void TweetUpdate() {
+	public static void TweetUpdate(Tweet T) {
+		try(FileWriter fw = new FileWriter("trainingProcesed.txt", true);
+			    BufferedWriter bw = new BufferedWriter(fw);
+			    PrintWriter out = new PrintWriter(bw))
+			{
+			    out.println(T.toString());
+			    System.out.print("Tweet Added to text file successfully!");
+			   
+			} catch (IOException e) {
+			    //exception handling left as an exercise for the reader
+			}
+		
 		
 	}
 }
